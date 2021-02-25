@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "trendsAngular"
+    }
+  },
+  "defaultProject": "trendsAngular",
+  "cli": {
+    "analytics": "8fdaa6c0-99cd-4350-9f31-021da66115da"
+  }
 }
