@@ -1,1 +1,16 @@
+<div>
+<nav>
+<ul>
+  <li>
+    <a routerLink="">Home</a>
+  </li>
+  <li>
+    <a routerLink="page">Pagination</a>
+  </li>
+</ul>
+</nav>
+
+
+<div *ngIf="showLoadingIndicator">Loading....</div>
 <router-outlet></router-outlet>
+</div>
