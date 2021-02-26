@@ -3,6 +3,7 @@ import {DataService} from '../data.service'
 import {Event,Router,NavigationStart,NavigationEnd} from '@angular/router'
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class PageComponent implements OnInit {
 
   constructor(private dataService:DataService,
     private router:Router,
+    private spinner:NgxSpinnerService,
     ) {
     this.data=new Array<any>()
     this.router.events.subscribe((routerEvent:Event)=>{
@@ -45,6 +47,14 @@ export class PageComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    //spinner on init
+    this.spinner.show();
+    setTimeout(()=>{
+      this.spinner.hide();
+    },5000) //spinner ends after 5 secs
+
+    //multiselect drop down
     this.dropdownList = [
       {id:'1',itemName:'India'},
       {id:'2',itemName:'Singapore'},
@@ -104,6 +114,15 @@ onSelectAll(items: any){
 }
 onDeSelectAll(items: any){
     console.log(items);
+}
+
+// spinner on button click
+openSpinner(){
+  this.spinner.show();
+  setTimeout(()=>{
+    this.spinner.hide();
+  },2000)
+
 }
 
 }
